@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+h2 {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+    background-color: #f7fafc; 
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
