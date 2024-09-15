@@ -1,8 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import DataTable from "../features/DataTable";
+import { DataTable } from "datatable";
+import { employees } from "../mock/employees";
+import { titles } from "../mock/titles";
 
 const Home = () => {
   const navigate = useNavigate();
+
   return (
     <div className="flex flex-col items-center justify-center mt-8">
       <h1>Current Employees</h1>
@@ -12,8 +15,9 @@ const Home = () => {
       >
         Create Employee
       </button>
+
       <section className="mt-9 w-2/3">
-        <DataTable />
+        <DataTable titles={titles} rows={employees} />
       </section>
     </div>
   );
