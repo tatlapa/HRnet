@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataTable } from "datatable";
-import { employees } from "../mock/employees";
 import { titles } from "../mock/titles";
+import EmployeesContext from "../contexts/employee.context";
 
 const Home = () => {
   const navigate = useNavigate();
+  const { employees } = useContext(EmployeesContext) ?? { employees: [] };
+  console.log(employees);
 
   return (
     <div className="flex flex-col items-center justify-center mt-8">

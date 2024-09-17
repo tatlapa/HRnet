@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "DataTable": "file:../datatable",
     "@heroicons/react": "^2.1.5",
+    "DataTable": "file:../datatable",
     "react": "^18.3.1",
+    "react-datepicker": "^7.3.0",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "react-router-dom": "^6.26.2",
+    "react-select": "^5.8.0",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

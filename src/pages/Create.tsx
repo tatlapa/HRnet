@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Form from "../components/Form";
 import { departments } from "../mock/departments";
 import { states } from "../mock/states";
+import { ToastContainer } from "react-toastify";
 
 const Create = () => {
   const navigate = useNavigate();
@@ -15,7 +16,13 @@ const Create = () => {
         Current Employees
       </button>
       <h2>Create Employee</h2>
-      <Form departments={departments} states={states}/>
+      <Form
+        departments={departments.map((department: string) => department)}
+        states={states.map(
+          (state: { name: string; abbreviation: string }) => state.name
+        )}
+      />
+      <ToastContainer />
     </div>
   );
 };

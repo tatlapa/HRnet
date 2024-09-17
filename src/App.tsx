@@ -1,10 +1,13 @@
-import Router from './router/Router';
+import Router from "./router/Router";
 import { RouterProvider } from "react-router-dom";
+import { EmployeesProvider } from "./contexts/employee.context";
 
 const App = () => {
   return (
-    <RouterProvider router={Router} />
+    <EmployeesProvider>
+      <RouterProvider router={Router} />
+    </EmployeesProvider>
   );
-}
+};
 
 export default App;
