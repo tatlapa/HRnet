@@ -37,7 +37,7 @@ const Form: React.FC<FormProps> = (props) => {
         street,
         city,
         state,
-        zip,
+        zip: zip !== null ? zip : 0,
       };
       employeeContext.addEmployee(employee);
       notify();
