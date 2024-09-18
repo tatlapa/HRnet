@@ -1,18 +1,18 @@
 import React from "react";
 import Select from "react-select";
 
-type Item = { name: string } | string;
+type Item = { name: string; abbreviation: string } | string;
 
 interface Props {
   label: string;
   array: Item[];
-  onChange: (option: { label: string }) => void;
+  onChange: (option: { label: string; abbreviation: string }) => void;
 }
 
 const FieldSelect: React.FC<Props> = ({ label, array, onChange }) => {
   const options = array.map((item) => ({
-    value: typeof item === "string" ? item : item.name,
     label: typeof item === "string" ? item : item.name,
+    abbreviation: typeof item === "string" ? "" : item.abbreviation,
   }));
 
   return (
@@ -21,7 +21,7 @@ const FieldSelect: React.FC<Props> = ({ label, array, onChange }) => {
       <Select
         options={options}
         onChange={(selectedOption) =>
-          onChange(selectedOption as { label: string })
+          onChange(selectedOption as { label: string; abbreviation: string })
         }
         className="border-2 border-gray-100"
       />

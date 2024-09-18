@@ -7,5 +7,5 @@ export const titles: { title: string; key: string; type: "string" | "number" | "
   { title: 'Street', key: 'street', type: 'string' },
   { title: 'City', key: 'city', type: 'string' },
   { title: 'State', key: 'state', type: 'string' },
-  { title: 'Zip', key: 'zip', type: 'number' },
+  { title: 'ZipCode', key: 'zip', type: 'number' },
 ];

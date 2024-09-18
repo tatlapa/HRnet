@@ -18,9 +18,10 @@ const Create = () => {
       <h2>Create Employee</h2>
       <Form
         departments={departments.map((department: string) => department)}
-        states={states.map(
-          (state: { name: string; abbreviation: string }) => state.name
-        )}
+        states={states.map((state: { name: string; abbreviation: string }) => ({
+          name: state.name,
+          abbreviation: state.abbreviation,
+        }))}
       />
       <ToastContainer />
     </div>

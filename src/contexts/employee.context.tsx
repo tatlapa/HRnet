@@ -19,7 +19,9 @@ interface EmployeesContextType {
 
 const EmployeesContext = createContext<EmployeesContextType | null>(null);
 
-export const EmployeesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const EmployeesProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [employees, setEmployees] = useState<Employee[]>([]);
 
   useEffect(() => {
@@ -39,13 +41,8 @@ export const EmployeesProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   }, []);
 
   const addEmployee = (employee: Employee) => {
-    const employeeWithStringDates = {
-      ...employee,
-      birthDate: employee.birthDate.toString(),
-      startDate: employee.startDate.toString(),
-    };
     setEmployees((prevEmployees) => {
-      const updatedEmployees = [...prevEmployees, employeeWithStringDates];
+      const updatedEmployees = [...prevEmployees, employee];
       localStorage.setItem("employees", JSON.stringify(updatedEmployees));
       return updatedEmployees;
     });

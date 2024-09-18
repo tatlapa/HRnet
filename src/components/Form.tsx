@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import EmployeesContext from "../contexts/employee.context";
 
 interface FormProps {
-  states: string[];
+  states: { name: string; abbreviation: string }[];
   departments: string[];
 }
 
@@ -21,7 +21,7 @@ const Form: React.FC<FormProps> = (props) => {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [zip, setZip] = useState<number>(0);
+  const [zip, setZip] = useState<number | null>(null);
   const [department, setDepartment] = useState("");
 
   const notify = () => toast("Employee Created!");
@@ -31,9 +31,9 @@ const Form: React.FC<FormProps> = (props) => {
       const employee = {
         firstName,
         lastName,
-        startDate: startDate.toString(),
+        startDate: startDate.toLocaleDateString("en-US"),
         department,
-        birthDate: birthDate.toString(),
+        birthDate: birthDate.toLocaleDateString("en-US"),
         street,
         city,
         state,
@@ -83,12 +83,17 @@ const Form: React.FC<FormProps> = (props) => {
         <FieldSelect
           label="State"
           array={props.states}
-          onChange={(option) => setState(option.label)}
+          onChange={(option) => setState(option.abbreviation || "")}
         />
         <FieldInput
           label="Zip Code"
-          value={zip}
-          onChange={(e) => setZip(parseInt(e.target.value))}
+          value={zip !== null ? zip : ""}
+          onChange={(e) => {
+            const value = e.target.value;
+            if (value === "" || /^[0-9\b]+$/.test(value)) {
+              setZip(value === "" ? null : parseInt(value));
+            }
+          }}
         />
       </fieldset>
       <FieldSelect
