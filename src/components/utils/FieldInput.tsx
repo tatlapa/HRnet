@@ -12,7 +12,7 @@ const FieldInput: React.FC<FieldInputProps> = ({ label, value, onChange }) => {
       <label className="font-semibold">{label}</label>
       <input
         type="text"
-        value={value}
+        value={value ?? ""}
         onChange={onChange}
         className="border-2 border-black rounded-sm px-1 py-0.5"
       />

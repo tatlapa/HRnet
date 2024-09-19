@@ -3,9 +3,9 @@ import React, { createContext, useState, useEffect } from "react";
 interface Employee {
   firstName: string;
   lastName: string;
-  startDate: string;
+  startDate: string | Date;
   department: string;
-  birthDate: string;
+  birthDate: string | Date;
   street: string;
   city: string;
   state: string;

@@ -83,7 +83,7 @@ const Form: React.FC<FormProps> = (props) => {
         <FieldSelect
           label="State"
           array={props.states}
-          onChange={(option) => setState(option.abbreviation || "")}
+          onChange={(option) => setState(option.value || "")}
         />
         <FieldInput
           label="Zip Code"

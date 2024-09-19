@@ -5,6 +5,10 @@ import EmployeesContext from "../contexts/employee.context";
 import { DataTable } from "@tatlapa/react-datatable-plugin";
 import "/node_modules/@tatlapa/react-datatable-plugin/dist/style.css";
 
+interface Employee {
+  [key: string]: string | number | Date;
+}
+
 const Home = () => {
   const navigate = useNavigate();
   const { employees } = useContext(EmployeesContext) ?? { employees: [] };
@@ -20,7 +24,7 @@ const Home = () => {
       </button>
 
       <section className="mt-9 w-2/3">
-        <DataTable titles={titles} rows={employees} />
+        <DataTable titles={titles} rows={employees as Employee[]} />
       </section>
     </div>
   );
