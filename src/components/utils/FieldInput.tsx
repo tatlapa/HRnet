@@ -9,8 +9,12 @@ interface FieldInputProps {
 const FieldInput: React.FC<FieldInputProps> = ({ label, value, onChange }) => {
   return (
     <div className="flex flex-col">
-      <label className="font-semibold">{label}</label>
+      <label htmlFor={label} className="font-semibold">
+        {label}
+      </label>
       <input
+        aria-label="input"
+        id={label}
         type="text"
         value={value ?? ""}
         onChange={onChange}

@@ -18,8 +18,10 @@ const FieldSelect: React.FC<Props> = ({ label, array, onChange }) => {
   
   return (
     <div className="flex flex-col">
-      <label className="font-semibold">{label}</label>
+      <label className="font-semibold" htmlFor={label}>{label}</label>
       <Select
+        inputId={label}
+        aria-label="select"
         options={options}
         onChange={(selectedOption) =>
           onChange(selectedOption as { label: string; value?: string })

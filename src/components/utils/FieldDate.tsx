@@ -11,8 +11,9 @@ interface FieldDateProps {
 const FieldDate: React.FC<FieldDateProps> = ({ label, selected, onChange }) => {
   return (
     <div className="flex flex-col">
-      <label className="font-semibold">{label}</label>
+      <label className="font-semibold" htmlFor={label}>{label}</label>
       <DatePicker
+        id={label}
         selected={selected}
         onChange={(date) => onChange(date as Date)}
         className="border-2 border-black rounded-sm px-1 py-0.5 w-full"
@@ -21,6 +22,7 @@ const FieldDate: React.FC<FieldDateProps> = ({ label, selected, onChange }) => {
         showMonthDropdown
         showYearDropdown
         dropdownMode="select"
+        ariaLabelClose="Close"
       />
     </div>
   );
