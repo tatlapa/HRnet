@@ -1,6 +1,6 @@
 # HR Net Application
 
-HR Net is a web application designed to manage employee information, featuring two main pages: "Create Employee" and "Display Employees".
+HR Net is a web application designed to manage employee information, featuring two main pages: "Create" and "Home".
 
 This document provides an overview of the application's main functionalities.
 
