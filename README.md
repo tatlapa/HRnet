@@ -15,19 +15,19 @@ The main goal of this project was to upgrade from [an old JQuery-based](https://
 
 The repository also includes a performance comparison between the JQuery and React versions of the application using Lighthouse.
 
-### Create Employee
+### Create
 
-The "Create Employee" page includes a form with data validation powered by react-hook-forms and zod. When the form is successfully submitted, the new employee data is stored in the user's localStorage to prevent data loss upon page refresh or closure. This page utilizes two custom-built components:
-- A date picker with validation to prevent future dates.
-- A modal component.
+The "Create" page includes a form. When the form is successfully submitted, the new employee data is stored in the user's localStorage to prevent data loss upon page refresh or closure and can be use in any component by using useContext. This page utilizes three imported components :
+- react-datepicker
+- react-select
+- react-toastify
 
-### Display Employees
+### Home
 
-The "Display Employees" page fetches all employee records stored in localStorage and displays them using a custom table component. This table offers several features:
+The "Home" page use the EmployeesContext for get all employee stored in localStorage and displays them using a custom table component. This table offers several features:
 - Pagination to control the number of records displayed per page.
 - Sorting to arrange records in ascending or descending order based on any field.
 - Filtering to search for records based on user-input text.
-- An action section to enable the deletion of employee records from localStorage.
 
 ## Run Locally
 
