@@ -1,50 +1,58 @@
-# React + TypeScript + Vite
+# HR Net Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+HR Net is a web application designed to manage employee information, featuring two main pages: "Create Employee" and "Display Employees".
 
-Currently, two official plugins are available:
+This document provides an overview of the application's main functionalities.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+_This project was completed as part of my "Software Developer - React" training program._
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The main goal of this project was to upgrade from [an old JQuery-based](https://github.com/OpenClassrooms-Student-Center/P12_Front-end) version to a modern React-based application. Additionally, the project aimed to develop modular components that could be reused in other applications. One significant component developed is a paginated table, which includes features for pagination, filtering, and sorting data. You can find the standalone version of this component here:
 
-- Configure the top-level `parserOptions` property like this:
+- [GitHub](https://github.com/tatlapa/ReactPlugin-datatable)
+- [NPM](https://www.npmjs.com/package/@tatlapa/react-datatable-plugin)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+The repository also includes a performance comparison between the JQuery and React versions of the application using Lighthouse.
+
+### Create Employee
+
+The "Create Employee" page includes a form with data validation powered by react-hook-forms and zod. When the form is successfully submitted, the new employee data is stored in the user's localStorage to prevent data loss upon page refresh or closure. This page utilizes two custom-built components:
+- A date picker with validation to prevent future dates.
+- A modal component.
+
+### Display Employees
+
+The "Display Employees" page fetches all employee records stored in localStorage and displays them using a custom table component. This table offers several features:
+- Pagination to control the number of records displayed per page.
+- Sorting to arrange records in ascending or descending order based on any field.
+- Filtering to search for records based on user-input text.
+- An action section to enable the deletion of employee records from localStorage.
+
+## Run Locally
+
+To run the application locally, follow these steps:
+
+Clone the repository:
+
+```bash
+git clone https://github.com/tatlapa/hrnet
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Navigate to the project directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+cd hrnet
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+Install the required dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
 ```
