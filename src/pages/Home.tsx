@@ -5,6 +5,8 @@ import EmployeesContext from "../contexts/employee.context";
 import { DataTable } from "@tatlapa/react-datatable-plugin";
 import "/node_modules/@tatlapa/react-datatable-plugin/dist/style.css";
 
+
+
 interface Employee {
   [key: string]: string | number | Date;
 }
@@ -18,8 +20,9 @@ const Home = () => {
       <h1>Current Employees</h1>
       <button
         onClick={() => navigate("/create")}
-        className="bg-green-500 text-white rounded-md p-1.5"
+        className="bg-green-700 text-white rounded-md p-1.5"
       >
+        <h2 className="sr-only">list of employees</h2>
         Create Employee
       </button>
 
