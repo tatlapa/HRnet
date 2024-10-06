@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 
 interface Employee {
   firstName: string;
@@ -24,26 +24,9 @@ export const EmployeesProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [employees, setEmployees] = useState<Employee[]>([]);
 
-  useEffect(() => {
-    const storedEmployees = localStorage.getItem("employees");
-    if (storedEmployees) {
-      try {
-        const parsedEmployees = JSON.parse(storedEmployees);
-        if (Array.isArray(parsedEmployees)) {
-          setEmployees(parsedEmployees);
-        } else {
-          console.error("Stored employees data is not an array");
-        }
-      } catch (error) {
-        console.error("Error parsing stored employees data", error);
-      }
-    }
-  }, []);
-
   const addEmployee = (employee: Employee) => {
     setEmployees((prevEmployees) => {
       const updatedEmployees = [...prevEmployees, employee];
-      localStorage.setItem("employees", JSON.stringify(updatedEmployees));
       return updatedEmployees;
     });
   };
