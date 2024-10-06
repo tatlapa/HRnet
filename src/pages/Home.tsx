@@ -3,9 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { titles } from "../mock/titles";
 import EmployeesContext from "../contexts/employee.context";
 import { DataTable } from "@tatlapa/react-datatable-plugin";
-import "/node_modules/@tatlapa/react-datatable-plugin/dist/style.css";
-
-
 
 interface Employee {
   [key: string]: string | number | Date;
